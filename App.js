@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import Weather from "./Weather"
 
 export default class App extends React.Component {
   state = {
-    isLoaded: false
+    isLoaded: true
   };
   render() {
     const { isLoaded } = this.state;
     return (
       <View style={styles.container}>
-        {isLoaded ? null : (
+        {isLoaded ? (
+          <Weather />
+        ) : (
           <View style={styles.loading}>
-          <Text style={styles.loadingText}>Getting the weather</Text>
-          </View>)}
+            <Text style={styles.loadingText}>Getting the weather1</Text>
+          </View>
+        )}
       </View>
     );
   }
@@ -30,7 +34,7 @@ const styles = StyleSheet.create({
     paddingLeft: 25
   },
   loadingText:{
-    fontSize:38,
+    fontSize:35,
     marginBottom: 100
   }
 });

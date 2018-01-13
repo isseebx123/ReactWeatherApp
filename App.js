@@ -4,8 +4,14 @@ import Weather from "./Weather"
 
 export default class App extends React.Component {
   state = {
-    isLoaded: true
+    isLoaded: false
   };
+  componentDidMount(){
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        console.log(position);
+      });
+  }
   render() {
     const { isLoaded } = this.state;
     return (
@@ -15,7 +21,7 @@ export default class App extends React.Component {
           <Weather />
         ) : (
           <View style={styles.loading}>
-            <Text style={styles.loadingText}>Getting the weather1</Text>
+            <Text style={styles.loadingText}>Getting the weather</Text>
           </View>
         )}
       </View>

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from "expo";
+import { Ionicons } from "@expo/vector-icons" // expo가 아니면 yarn이나 npm으로 설치해야함
+// https://expo.github.io/vector-icons/
 
 export default class Weather extends Component {
   render(){
     return (
     <LinearGradient colors={["#00C6FB", "#005BEA"]} style={styles.container}>
       <View style={styles.upper}>
+        <Ionicons color="white" size={144} name="ios-rainy"/>
         <Text>Icon here!</Text>
         <Text style={styles.temp}>35</Text>
       </View>
@@ -26,15 +29,15 @@ const styles = StyleSheet.create({
   upper:{
     flex:1,
     alignItems:"center",
+    backgroundColor: "transparent",
     justifyContent:"center"
   },
   temp: {
-    fontSize: 38,
+    fontSize: 48,
     backgroundColor: "transparent",
     color: "white",
     marginTop: 10
-  }
-  ,
+  },
   lower: {
     flex: 1,
     alignItems:"flex-start",

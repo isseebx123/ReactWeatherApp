@@ -2,24 +2,39 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, StatusBar } from 'react-native';
 import Weather from "./Weather"
 
+const API_KEY = "8a617222350f8564731f108216383120";
+
 export default class App extends React.Component {
   state = {
     isLoaded: false,
-    error: null
+    error: null,
+    temperature: null,
+    name: null
   };
   componentDidMount(){
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState({
-          isLoaded: true
-        });
+        this._getWeather(position.coords.latitude, position.coords.longitude)
       },
+      // error: error는 안되서 true로 했음. react 객체가 아니라고 뜨던데.
       error => {
         this.setState({
-          error: error
+          error: true
         })
       }
     );
+  }
+  // API call: https://openweathermap.org/current
+  _getWeather = (lat, long) => {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${API_KEY}`)
+    .then(response => response.json())
+    .then(json => {
+      this.setState({
+        temperature: json.main.temp,
+        name: json.weather[0],main,
+        isLoaded: true
+      })
+    });
   }
   render() {
     const { isLoaded, error } = this.state;

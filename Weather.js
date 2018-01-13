@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from "expo";
-import { Ionicons } from "@expo/vector-icons" // expo가 아니면 yarn이나 npm으로 설치해야함
+import { MaterialCommunityIcons } from "@expo/vector-icons" // expo가 아니면 yarn이나 npm으로 설치해야함
 // https://expo.github.io/vector-icons/
 import PropTypes from "prop-types";
 
@@ -10,50 +10,56 @@ const weatherCases = {
     colors:["#00C6FB", "#005BEA"],
     title: "Raining",
     subtitle: "For more info look outside",
-    icon: 'ios-rainy'
+    icon: 'weather-rainy'
   },
   Clear:{
     colors:["#FEF253", "#FF7300"],
     title: "Sunny",
     subtitle: "Go to the park",
-    icon: 'ios-sunny'
+    icon: 'weather-sunny'
   },
   Thunderstorm:{
     colors:["#00ECBC", "#007ADF"],
     title: "Thunderstorm",
     subtitle: "Actually, outside of the house",
-    icon: 'ios-thunderstorm'
+    icon: 'weather-lightning'
   },
   Clouds:{
     colors:["#D7D2CC", "#304352"],
     title: "Clouds",
     subtitle: "I know, boring",
-    icon: 'ios-cloudy'
+    icon: 'weather-cloudy'
   },
   Snow:{
     colors:["#7DE2FC", "#B9B6E5"],
     title: "Snow",
     subtitle: "Make a snow man",
-    icon: 'ios-snow'
+    icon: 'weather-snowy'
   },
   Drizzle:{
     colors:["#89F7FE", "#66A6FF"],
     title: "Drizzle",
     subtitle: "Is like rain, ..",
-    icon: 'ios-rainy-outline'
+    icon: 'weather-hail'
   },
   Haze:{
     colors:["#89F7FE", "#66A6FF"],
     title: "Haze",
     subtitle: "I don't know what haze is",
-    icon: 'ios-rainy-outline'
+    icon: 'weather-fog'
+  },
+  Mist:{
+    colors:["#89F7FE", "#66A6FF"],
+    title: "Mist",
+    subtitle: "I don't know what mist is too",
+    icon: 'weather-fog'
   }
 }
 function Weather({weatherName, temp}){
   return(
     <LinearGradient colors={weatherCases[weatherName].colors} style={styles.container}>
       <View style={styles.upper}>
-        <Ionicons 
+        <MaterialCommunityIcons 
         color="white" 
         size={144} 
         name={weatherCases[weatherName].icon}/>

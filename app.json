@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "react-weather",
-    "description": "This project is really great.",
-    "slug": "react-weather",
+    "description": "18 React practice app",
+    "slug": "react-weather-slug",
     "privacy": "public",
     "sdkVersion": "24.0.0",
     "platforms": ["ios", "android"],
@@ -15,7 +15,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "com.isseebx123.weatherApp",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.isseebx123.weatherApp"
     }
   }
 }
